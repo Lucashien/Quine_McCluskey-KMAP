@@ -1,0 +1,5 @@
+Prime Implicant = a'b'cd'ef,a'b'c'd'f',a'c'd'e'f',a'c'de'f,abdef,b'd'e'f',ab'e'f'
+Essential Prime Implicant = a'b'cd'ef,a'c'd'e'f',a'c'de'f,abdef,b'd'e'f',ab'e'f'
+The reduced SOP form:
+Answer 1 : 
+F(A,B,C,D,E,F) = a'c'd'e'f'+a'c'de'f+a'b'cd'ef+ab'e'f'+abdef
