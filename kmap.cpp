@@ -15,8 +15,6 @@ void kmap(int varible_num, vector<int> m, vector<int> d);
 int main()
 {
 	ifstream fin("input.txt");
-	// ofstream fout("output.txt");
-
 	// cout << "\n***** Quine-McCluskey Algorithm *****" << endl;
 	Quine_McCluskey QM;
 	loadinginput(fin, QM);
@@ -30,7 +28,6 @@ int main()
 	PM.output_SOP(QM.Get_Vars());
 
 	fin.close();
-	// fout.close();
 	cout << "Successfully. Please check the output.txt" << endl;
 	return 0;
 }
