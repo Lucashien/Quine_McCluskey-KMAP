@@ -62,15 +62,12 @@ vector<string> Quine_McCluskey::Solve()
 	sort(Impli.begin(), Impli.end(), sort_by_num_of_1);
 
 	int round = 0;
-	while (!Dontcare_Impli.empty())
-	{
+	while (!Dontcare_Impli.empty()) //產生最簡的dontcare項，以免也把他算進prime implicants
 		Generate_min_dontcare();
-	}
 
 	while (!Impli.empty())
-	{
 		Generate_Prime_Impli();
-	}
+
 	Erase_min_dontcare();
 	Gernerate_essential();
 	return Prime_Impli;
@@ -103,13 +100,10 @@ void Quine_McCluskey::Generate_Prime_Impli()
 		{
 			if (isGreyCode(Impli[i], Impli[j]))
 			{
-				/*cout << "check:" << endl;
-				cout << Impli[i] << endl
-					 << Impli[j] << endl;*/
 				string s = Merge(Impli[i], Impli[j]);
 				if (find(temp.begin(), temp.end(), s) == temp.end())
 					temp.push_back(s);
-				// cout << s << endl;
+
 				// 標記 implicant 是否已經過融合
 				flag[i] = true;
 				flag[j] = true;
@@ -248,9 +242,7 @@ string Quine_McCluskey::Dec_to_Bin(int n)
 	}
 	int pad = Num_Var - s.length();
 	while (pad--)
-	{
 		s += '0';
-	}
 	reverse(s.begin(), s.end());
 	return s;
 }
@@ -285,9 +277,9 @@ void Quine_McCluskey::Find_Prime_Impli_Pair()
 void Quine_McCluskey::Gernerate_essential()
 {
 	Find_Prime_Impli_Pair();
-	vector<int> temp;
-	vector<vector<int>> copy_pair;
-	set<int> re;
+	vector<int> temp;			   //裝重複項，跟 re 做操作
+	vector<vector<int>> copy_pair; //不直接對Prime Implicant 內的 element 做操作
+	set<int> re;				   // 裝重複的minterm
 	set<int>::iterator iter = re.begin();
 
 	copy_pair.assign(Prime_Impli_pair.begin(), Prime_Impli_pair.end());

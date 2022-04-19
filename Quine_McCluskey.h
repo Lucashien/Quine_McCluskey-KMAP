@@ -37,13 +37,11 @@ private:
 public:
 	Quine_McCluskey();
 	~Quine_McCluskey();
-
 	// ----方便設定用----
 	void Set_Num_Var(int);
 	void Add_On_Set(int);
 	void Add_DC_Set(int);
 	//--------------------
-
 	vector<string> Solve(); // return prime implicants
 
 	int &Get_Vars();
@@ -59,5 +57,4 @@ public:
 	void Print_Essential_Prime_Impli();
 	string binaryToAlphabet(string a);
 };
-
 #endif
