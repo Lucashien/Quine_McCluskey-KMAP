@@ -295,18 +295,29 @@ void Quine_McCluskey::Gernerate_essential()
 			re.insert(temp[i]);
 
 	for (int i = 0; i < copy_pair.size(); i++) // 有幾組prime implicants minterm
+	{
+		int size = copy_pair[i].size();
 		for (int j = 0; j < copy_pair[i].size(); j++)
 		{
 			// 跟重複向比對
 			for (iter = re.begin(); iter != re.end(); iter++)
 				if (copy_pair[i][j] == *iter)
+				{
 					copy_pair[i].erase(copy_pair[i].begin() + j);
+					j--;
+					size--;
+				}
 
 			// 跟dontcare項比對
 			for (int k = 0; k < DC_Set.size(); k++)
 				if (copy_pair[i][j] == DC_Set[k])
+				{
 					copy_pair[i].erase(copy_pair[i].begin() + j);
+					j--;
+					size--;
+				}
 		}
+	}
 
 	// 標記 essential
 	for (int i = 0; i < copy_pair.size(); i++)
