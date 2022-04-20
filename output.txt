@@ -1,5 +1,18 @@
-Prime Implicant = a'bc'd'e'f'gh'i'j'kl',a'bc'd'e'fgh'ijk'l,abcdef'gh'i'j'k'l',ab'cdef'ghi'jkl,abcdef'ghi'jk'l,a'b'c'd'e'f'g'h'ij'k',a'b'c'd'e'f'g'h'jk'l,a'b'c'd'e'f'h'i'jk'l,a'b'c'd'e'f'g'ijk'l,a'b'c'd'e'f'g'hijl,a'b'c'd'e'f'g'h'i'l',a'b'c'd'e'f'g'i'k'l',a'b'c'd'e'f'g'j'k'l',a'b'c'd'e'f'g'h'i'k,a'b'c'd'e'f'g'h'i'j
-Essential Prime Implicant = a'bc'd'e'f'gh'i'j'kl',a'bc'd'e'fgh'ijk'l,abcdef'gh'i'j'k'l',ab'cdef'ghi'jkl,abcdef'ghi'jk'l,a'b'c'd'e'f'h'i'jk'l,a'b'c'd'e'f'g'hijl,a'b'c'd'e'f'g'j'k'l',a'b'c'd'e'f'g'h'i'k
+  \AB|               |
+CD \ | 00  01  11  10|
+-----+---+---+---+---+ 
+   00|  0|  1|  1|  1|
+-----+---+---+---+---+ 
+   01|  0|  0|  0|  x|
+-----+---+---+---+---+ 
+   11|  0|  0|  1|  1|
+-----+---+---+---+---+ 
+   10|  0|  0|  x|  1|
+-----+---+---+---+---+ 
+Prime Implicant = bc'd',ab',ad',ac
+Essential Prime Implicant = bc'd',ac
 The reduced SOP form:
 Answer 1 : 
-F(A,B,C,D,E,F,G,H,I,J,K,L) = a'b'c'd'e'f'h'i'jk'l+a'b'c'd'e'f'g'j'k'l'+a'b'c'd'e'f'g'h'i'k+a'b'c'd'e'f'g'hijl+a'bc'd'e'f'gh'i'j'kl'+a'bc'd'e'fgh'ijk'l+ab'cdef'ghi'jkl+abcdef'gh'i'j'k'l'+abcdef'ghi'jk'l
+F(A,B,C,D) = bc'd'+ac+ab'
+Answer 2 : 
+F(A,B,C,D) = bc'd'+ad'+ac
